@@ -6,4 +6,19 @@ public class AssaultWeapon extends Weapon {
     public float damage;
     public float effectiveRange;
     public AssaultWeaponType assaultType;
+
+
+    public AssaultWeapon()
+    {
+        this(-1, 100, 100, 1, AssaultWeaponType.Combat);
+    }
+
+    public AssaultWeapon(int id, int quality, float damage, float effectiveRange, AssaultWeaponType assaultType)
+    {
+        super(id, quality);
+
+        this.damage = damage;
+        this.effectiveRange = effectiveRange;
+        this.assaultType = assaultType;
+    }
 }
