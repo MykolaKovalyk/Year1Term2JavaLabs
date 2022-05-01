@@ -20,19 +20,6 @@ public class Solider {
 
 
 
-    public void EnterDivision(Division newDivision) {
-        division = newDivision;
-    }
-
-    public Division LeaveDivision() {
-        var oldDivision =  division;
-        division = null;
-
-        return oldDivision;
-    }
-
-
-
     public void AddNewWeapon(Weapon newWeapon) {
         weapons.add(newWeapon);
     }

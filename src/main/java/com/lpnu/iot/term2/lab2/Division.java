@@ -19,10 +19,17 @@ public class Division {
     }
 
     public void AddSolider(Solider newSolider) {
+
+        if(newSolider.division != null)
+            newSolider.division.RemoveSolider(newSolider);
+
+
+        newSolider.division = this;
         soliders.add(newSolider);
     }
 
     public void RemoveSolider(Solider newSolider) {
+        newSolider.division = null;
         soliders.remove(newSolider);
     }
 }
