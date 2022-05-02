@@ -19,4 +19,15 @@ public class DefenceWeapon extends Weapon {
         this.shieldHealth = shieldHealth;
         this.ratedFor = ratedFor;
     }
+
+
+    public static String getHeaders()
+    {
+        return Weapon.getHeaders() + ", blockedDamagePercent, shieldHealth, ratedFor";
+    }
+
+    public String toCSV()
+    {
+        return  super.toCSV() + ", " + blockedDamagePercent + ", " + shieldHealth + ", " + ratedFor;
+    }
 }

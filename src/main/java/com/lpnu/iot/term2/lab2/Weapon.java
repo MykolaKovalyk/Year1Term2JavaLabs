@@ -13,4 +13,15 @@ public class Weapon {
         this.id = id;
         this.quality = quality;
     }
+
+
+    public static String getHeaders()
+    {
+        return "id, quality";
+    }
+
+    public String toCSV()
+    {
+        return id + ", " + quality;
+    }
 }

@@ -19,6 +19,7 @@ public class Main {
 
         solider2.AddNewWeapon(rifle);
 
+
         var division =  new Division();
 
         division.AddSolider(solider1);
@@ -29,6 +30,8 @@ public class Main {
         weaponManager.AddWeapon(rifle);
         weaponManager.AddWeapon(gun);
         weaponManager.AddWeapon(vest);
+
+        WeaponWriter.writeToCSV(weaponManager.GetWeaponList());
 
         for(var weapon : weaponManager.GetWeaponList())
             System.out.println(weapon.quality);
@@ -42,6 +45,7 @@ public class Main {
 
         for(var weapon : weaponManager.GetWeaponList())
             System.out.println(weapon.quality);
+
 
         System.out.println("Hello Java!");
     }

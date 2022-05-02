@@ -21,4 +21,14 @@ public class AssaultWeapon extends Weapon {
         this.effectiveRange = effectiveRange;
         this.assaultType = assaultType;
     }
+
+    public static String getHeaders()
+    {
+        return Weapon.getHeaders() + ", damage, effectiveRange, assaultType";
+    }
+
+    public String toCSV()
+    {
+        return  super.toCSV() + ", " + damage + ", " + effectiveRange + ", " + assaultType;
+    }
 }
