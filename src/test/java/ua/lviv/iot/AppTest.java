@@ -1,14 +1,10 @@
 package ua.lviv.iot;
 
 import com.lpnu.iot.term2.lab2.*;
-import com.sun.tools.jconsole.JConsoleContext;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import org.junit.jupiter.api.*;
-
-import java.util.ArrayList;
-import java.util.Comparator;
 
 
 /**
@@ -43,9 +39,9 @@ public class AppTest
 
         manager =  new WeaponryManager();
 
-        manager.AddWeapon(gun);
-        manager.AddWeapon(vest);
-        manager.AddWeapon(rifle);
+        manager.addWeapon(gun);
+        manager.addWeapon(vest);
+        manager.addWeapon(rifle);
 
     }
 
@@ -73,22 +69,22 @@ public class AppTest
 
 
     public void testFindAllAssaultWeaponsOfType() {
-        var weaponsList = manager.FindAllAssaultWeaponsOfType(AssaultWeaponType.Combat);
+        var weaponsList = manager.findAllAssaultWeaponsOfType(AssaultWeaponType.Combat);
         assertTrue(weaponsList.contains(gun));
     }
 
     public void testFindAllDefenceWeapons() {
-        assertTrue(manager.FindAllDefenceWeapons().contains(vest));
+        assertTrue(manager.findAllDefenceWeapons().contains(vest));
     }
 
     public void testSoliderEnteringAndLeavingDivision() {
-        division.AddSolider(solider1);
-        division.AddSolider(solider2);
+        division.addSolider(solider1);
+        division.addSolider(solider2);
 
         assertTrue(division.soliders.contains(solider1));
         assertNotNull(solider1.division);
 
-        division.RemoveSolider(solider2);
+        division.removeSolider(solider2);
 
         assertFalse(division.soliders.contains(solider2));
         assertNull(solider2.division);
@@ -96,50 +92,50 @@ public class AppTest
 
     public void testSoliderAcquiringAndGivingBackWeapon() {
 
-        solider2.AddNewWeapon(vest);
-        solider2.AddNewWeapon(gun);
+        solider2.addNewWeapon(vest);
+        solider2.addNewWeapon(gun);
 
         assertTrue(solider2.weapons.contains(gun));
         assertTrue(solider2.weapons.contains(vest));
 
 
-        solider2.GiveBackWeapon(1);
+        solider2.giveBackWeapon(1);
 
         assertFalse(solider2.weapons.contains(gun));
         assertTrue(solider2.weapons.contains(vest));
 
 
-        solider2.GiveBackWeapon(gun);
+        solider2.giveBackWeapon(gun);
 
         assertFalse(solider2.weapons.contains(gun));
     }
 
     public void testWeaponManagerAcquiringAndGivingOutWeapons() {
-        assertTrue(manager.GetWeaponList().contains(gun));
-        assertTrue(manager.GetWeaponList().contains(vest));
-        assertTrue(manager.GetWeaponList().contains(rifle));
+        assertTrue(manager.getWeaponList().contains(gun));
+        assertTrue(manager.getWeaponList().contains(vest));
+        assertTrue(manager.getWeaponList().contains(rifle));
 
 
-        manager.TakeWeapon(rifle);
+        manager.takeWeapon(rifle);
 
-        assertTrue(manager.GetWeaponList().contains(gun));
-        assertTrue(manager.GetWeaponList().contains(vest));
-        assertFalse(manager.GetWeaponList().contains(rifle));
+        assertTrue(manager.getWeaponList().contains(gun));
+        assertTrue(manager.getWeaponList().contains(vest));
+        assertFalse(manager.getWeaponList().contains(rifle));
 
-        manager.TakeWeapon(vest);
+        manager.takeWeapon(vest);
 
-        assertTrue(manager.GetWeaponList().contains(gun));
-        assertFalse(manager.GetWeaponList().contains(vest));
+        assertTrue(manager.getWeaponList().contains(gun));
+        assertFalse(manager.getWeaponList().contains(vest));
     }
 
     public void testAllSortAndFindMethodsInWeaponManager() {
-        manager.SortById(true);
-        var listToCheck =  manager.GetWeaponList();
+        manager.sortById(true);
+        var listToCheck =  manager.getWeaponList();
         for(int i = 1; i < listToCheck.size(); i++)
             assertTrue( listToCheck.get(i - 1).id >= listToCheck.get(i).id);
 
-        manager.SortByQuality(false);
-        listToCheck =  manager.GetWeaponList();
+        manager.sortByQuality(false);
+        listToCheck =  manager.getWeaponList();
         for(int i = 1; i < listToCheck.size(); i++)
             assertTrue( listToCheck.get(i - 1).quality <= listToCheck.get(i).quality);
     }

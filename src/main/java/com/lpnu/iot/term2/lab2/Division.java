@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Division {
     public ArrayList<Solider> soliders;
     public DivisionType type;
-    public int id_number;
+    public int idNumber;
 
 
     public Division() {
@@ -14,21 +14,20 @@ public class Division {
 
     public Division(int id, DivisionType type) {
         this.type = type;
-        this.id_number = id;
+        this.idNumber = id;
         soliders = new ArrayList<>();
     }
 
-    public void AddSolider(Solider newSolider) {
+    public void addSolider(Solider newSolider) {
 
-        if(newSolider.division != null)
-            newSolider.division.RemoveSolider(newSolider);
-
+        if (newSolider.division != null)
+            newSolider.division.removeSolider(newSolider);
 
         newSolider.division = this;
         soliders.add(newSolider);
     }
 
-    public void RemoveSolider(Solider newSolider) {
+    public void removeSolider(Solider newSolider) {
         newSolider.division = null;
         soliders.remove(newSolider);
     }
