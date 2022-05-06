@@ -18,8 +18,8 @@ public class WeaponryManager {
         availableWeapons.add(newWeapon);
     }
 
-    public void TakeWeapon(Weapon oldWeapon) {
-        availableWeapons.remove(oldWeapon);
+    public void TakeWeapon(Weapon neededWeapon) {
+        availableWeapons.remove(neededWeapon);
     }
 
 
@@ -43,11 +43,14 @@ public class WeaponryManager {
         var found =  new ArrayList<Weapon>();
 
         for (var weapon : availableWeapons) {
+            try
+            {
+                var casted = ((AssaultWeapon)weapon);
 
-            var casted = ((AssaultWeapon)weapon);
-
-            if(casted != null  && casted.assaultType == type)
-                found.add(weapon);
+                if(casted.assaultType == type)
+                    found.add(weapon);
+            }
+            catch(java.lang.ClassCastException e) { }
         }
 
         return found;
@@ -58,8 +61,14 @@ public class WeaponryManager {
         var found =  new ArrayList<Weapon>();
 
         for (var weapon : availableWeapons)
-            if(((DefenceWeapon)weapon) != null)
-                found.add(weapon);
+        {
+            try
+            {
+               var asDefence =  (DefenceWeapon)weapon;
+               found.add(asDefence);
+            }
+            catch(java.lang.ClassCastException e) { }
+        }
 
         return found;
     }
