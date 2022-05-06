@@ -3,6 +3,11 @@ package com.lpnu.iot.term2.lab2;
 import java.util.ArrayList;
 
 public class Solider {
+
+    public  static  final float DEFAULT_EFFECTIVENESS = 0.5f;
+
+
+
     public Division division;
     public float effectiveness;
     public ArrayList<Weapon> weapons;
@@ -10,7 +15,7 @@ public class Solider {
 
 
     public Solider() {
-        this(0.5f);
+        this(DEFAULT_EFFECTIVENESS);
     }
 
     public Solider(float effectiveness) {
@@ -20,15 +25,15 @@ public class Solider {
 
 
 
-    public void AddNewWeapon(Weapon newWeapon) {
+    public void addNewWeapon(Weapon newWeapon) {
         weapons.add(newWeapon);
     }
 
-    public Weapon GiveBackWeapon(int index) {
+    public Weapon giveBackWeapon(int index) {
         return weapons.remove(index);
     }
 
-    public void GiveBackWeapon(Weapon weaponToGiveBack) {
+    public void giveBackWeapon(Weapon weaponToGiveBack) {
         weapons.remove(weaponToGiveBack);
     }
 }

@@ -8,66 +8,68 @@ public class WeaponryManager {
 
     protected ArrayList<Weapon> availableWeapons;
 
-    public WeaponryManager()
-    {
+    public WeaponryManager() {
         availableWeapons = new ArrayList<>();
     }
 
 
-    public void AddWeapon(Weapon newWeapon) {
+    public void addWeapon(Weapon newWeapon) {
         availableWeapons.add(newWeapon);
     }
 
-    public void TakeWeapon(Weapon neededWeapon) {
+    public void takeWeapon(Weapon neededWeapon) {
         availableWeapons.remove(neededWeapon);
     }
 
 
 
-    public void SortById(boolean descending) {
-        availableWeapons.sort((weaponA, weaponB) -> descending ? weaponB.id - weaponA.id : weaponA.id - weaponB.id);
+    public void sortById(boolean descending) {
+        availableWeapons.sort(
+                (weaponA, weaponB) ->
+                        descending ? weaponB.id - weaponA.id
+                                : weaponA.id - weaponB.id);
     }
 
-    public void SortByQuality(boolean descending) {
-        availableWeapons.sort((weaponA, weaponB) -> descending ? weaponB.quality - weaponA.quality : weaponA.quality - weaponB.quality);
+    public void sortByQuality(boolean descending) {
+        availableWeapons.sort(
+                (weaponA, weaponB) ->
+                        descending ? weaponB.quality - weaponA.quality
+                                : weaponA.quality - weaponB.quality);
     }
 
-    public List<Weapon> GetWeaponList() {
+    public List<Weapon> getWeaponList() {
         return Collections.unmodifiableList(availableWeapons);
     }
 
 
 
-    public ArrayList<Weapon> FindAllAssaultWeaponsOfType(AssaultWeaponType type) {
+    public ArrayList<Weapon> findAllAssaultWeaponsOfType(
+            AssaultWeaponType type) {
 
         var found =  new ArrayList<Weapon>();
 
         for (var weapon : availableWeapons) {
-            try
-            {
-                var casted = ((AssaultWeapon)weapon);
+            try {
+                var casted = ((AssaultWeapon) weapon);
 
-                if(casted.assaultType == type)
+                if (casted.assaultType == type) {
                     found.add(weapon);
-            }
-            catch(java.lang.ClassCastException e) { }
+                }
+            } catch (java.lang.ClassCastException e) { }
         }
 
         return found;
     }
 
-    public ArrayList<Weapon> FindAllDefenceWeapons() {
+    public ArrayList<Weapon> findAllDefenceWeapons() {
 
         var found =  new ArrayList<Weapon>();
 
-        for (var weapon : availableWeapons)
-        {
-            try
-            {
-               var asDefence =  (DefenceWeapon)weapon;
+        for (var weapon : availableWeapons) {
+            try {
+               var asDefence =  (DefenceWeapon) weapon;
                found.add(asDefence);
-            }
-            catch(java.lang.ClassCastException e) { }
+            } catch (java.lang.ClassCastException e) { }
         }
 
         return found;
