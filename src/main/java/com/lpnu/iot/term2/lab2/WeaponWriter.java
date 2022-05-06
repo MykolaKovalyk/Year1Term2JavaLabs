@@ -23,24 +23,37 @@ public class WeaponWriter {
             }
         }
 
+        FileWriter writer = null;
         try {
-            var writer = new FileWriter("weapons.csv");
-
+            writer = new FileWriter("weapons.csv");
 
             writer.write(DefenceWeapon.getHeaders() + "\r\n");
-            for (var weapon : defences)
+            for (var weapon : defences) {
                 writer.write(weapon.toCSV() + "\r\n");
+            }
 
             writer.write(AssaultWeapon.getHeaders() + "\r\n");
-            for (var weapon : assaults)
+            for (var weapon : assaults) {
                 writer.write(weapon.toCSV() + "\r\n");
+            }
 
-            writer.close();
+            writer.flush();
         } catch (java.io.IOException e) {
             System.out.println(
                     "Unable to write weapons to file: "
                             + "an error occurred.");
             e.printStackTrace();
+        } finally {
+            try {
+                if (writer != null) {
+                    writer.close();
+                }
+            } catch (java.io.IOException e) {
+                System.out.println(
+                        "Unable to close FileWriter object: "
+                                + "an error occurred.");
+                e.printStackTrace();
+            }
         }
 
     }

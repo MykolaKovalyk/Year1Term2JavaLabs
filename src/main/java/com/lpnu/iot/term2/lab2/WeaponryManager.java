@@ -43,7 +43,8 @@ public class WeaponryManager {
 
 
 
-    public ArrayList<Weapon> findAllAssaultWeaponsOfType(AssaultWeaponType type) {
+    public ArrayList<Weapon> findAllAssaultWeaponsOfType(
+            AssaultWeaponType type) {
 
         var found =  new ArrayList<Weapon>();
 
@@ -51,8 +52,9 @@ public class WeaponryManager {
             try {
                 var casted = ((AssaultWeapon) weapon);
 
-                if (casted.assaultType == type)
+                if (casted.assaultType == type) {
                     found.add(weapon);
+                }
             } catch (java.lang.ClassCastException e) { }
         }
 

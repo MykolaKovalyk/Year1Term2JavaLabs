@@ -20,8 +20,9 @@ public class Division {
 
     public void addSolider(Solider newSolider) {
 
-        if (newSolider.division != null)
+        if (newSolider.division != null) {
             newSolider.division.removeSolider(newSolider);
+        }
 
         newSolider.division = this;
         soliders.add(newSolider);
