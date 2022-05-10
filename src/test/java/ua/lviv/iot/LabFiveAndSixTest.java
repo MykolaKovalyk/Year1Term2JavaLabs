@@ -10,7 +10,7 @@ import org.junit.jupiter.api.*;
 /**
  * Unit test for simple App.
  */
-public class AppTest
+public class LabFiveAndSixTest
     extends TestCase
 {
 
@@ -51,8 +51,7 @@ public class AppTest
      *
      * @param testName name of the test case
      */
-    public AppTest( String testName )
-    {
+    public LabFiveAndSixTest(String testName ) {
         super( testName );
     }
 
@@ -60,7 +59,7 @@ public class AppTest
      * @return the suite of tests being tested
      */
     public static Test suite() {
-        return new TestSuite( AppTest.class );
+        return new TestSuite( LabFiveAndSixTest.class );
     }
 
     /**
