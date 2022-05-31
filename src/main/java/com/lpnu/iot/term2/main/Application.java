@@ -1,21 +1,13 @@
 package com.lpnu.iot.term2.main;
 
-import com.lpnu.iot.term2.lab2.DefenceWeapon;
-import com.lpnu.iot.term2.lab2.AssaultWeapon;
-import com.lpnu.iot.term2.lab2.AssaultWeaponType;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.lpnu.iot.term2.lab2.WeaponryManager;
-import com.lpnu.iot.term2.lab2.WeaponWriter;
-
-import com.lpnu.iot.term2.lab2.Solider;
-import com.lpnu.iot.term2.lab2.Division;
-import com.lpnu.iot.term2.lab7.StringNegativeNumberReplacer;
-
-
-public class Main {
+@SpringBootApplication
+public class Application {
 
     public static void main(String[] args) {
-        var solider1 =  new Solider();
+        /*var solider1 =  new Solider();
         var solider2 =  new Solider();
 
         var gun =  new AssaultWeapon(
@@ -80,8 +72,8 @@ public class Main {
                         "hello -321 and 678 "
                         + "-> "
                         + replacer.getModifiedString("hello -321 and 678"));
+        */
 
-
-        System.out.println("Hello Java!");
+        SpringApplication.run(Application.class, args);
     }
 }
