@@ -44,7 +44,9 @@ public class WeaponController {
     @PUT
     @Path("/edit/{id}")
     @Produces(MediaType.TEXT_PLAIN)
-    public String updateWeaponById(@PathParam("id") Long id, @DefaultValue("-1") @QueryParam("quality") int quality) {
+    public String updateWeaponById(@PathParam("id") Long id,
+                                   @DefaultValue("-1")
+                                   @QueryParam("quality") int quality) {
 
         if(weaponService.updateWeapon(id, quality)) {
             return "Successfully updated a weapon with id " + id;
@@ -61,8 +63,7 @@ public class WeaponController {
 
         if(weaponService.deleteWeaponById(id)) {
             return "Successfully deleted an element with id " + id;
-        }
-        else {
+        } else {
             return "Error: there were no elements with id " + id;
         }
     }
