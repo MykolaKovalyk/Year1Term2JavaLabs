@@ -9,10 +9,7 @@ import com.lpnu.iot.term2.lab2.WeaponWriter;
 
 import com.lpnu.iot.term2.lab2.Solider;
 import com.lpnu.iot.term2.lab2.Division;
-
-
-
-
+import com.lpnu.iot.term2.lab7.StringNegativeNumberReplacer;
 
 
 public class Main {
@@ -75,6 +72,14 @@ public class Main {
         for (var weapon : weaponManager.getWeaponList()) {
             System.out.println(weapon.quality);
         }
+
+
+        var replacer = new StringNegativeNumberReplacer();
+
+        System.out.println(
+                        "hello -321 and 678 "
+                        + "-> "
+                        + replacer.getModifiedString("hello -321 and 678"));
 
 
         System.out.println("Hello Java!");
