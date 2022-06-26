@@ -1,45 +1,20 @@
 package ua.lviv.iot;
 
 import com.lpnu.iot.term2.lab7.StringNegativeNumberReplacer;
-import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 
 /**
  * Unit test for simple App.
  */
-public class LabSevenTest
-    extends TestCase
+public class TestLabSeven
 {
-
-
-    @BeforeEach
-    public void setUp() {
-    }
-
-
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public LabSevenTest(String testName ) {
-        super( testName );
-    }
-
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite() {
-        return new TestSuite( LabSevenTest.class );
-    }
-
-    /**
-     * Rigourous Test :-)
-     */
-
+    @Test
     public void testStringNegativeNumberReplacer()
     {
         var testString1 = "I got -123 as an answer in my 2-nd task";

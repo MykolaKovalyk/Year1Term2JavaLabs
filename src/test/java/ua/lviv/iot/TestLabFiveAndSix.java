@@ -1,17 +1,16 @@
 package ua.lviv.iot;
 
 import com.lpnu.iot.term2.lab2.*;
-import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 /**
  * Unit test for simple App.
  */
-public class LabFiveAndSixTest
-    extends TestCase
+public class TestLabFiveAndSix
 {
 
     public Solider solider1;
@@ -46,36 +45,18 @@ public class LabFiveAndSixTest
     }
 
 
-    /**
-     * Create the test case
-     *
-     * @param testName name of the test case
-     */
-    public LabFiveAndSixTest(String testName ) {
-        super( testName );
-    }
-
-    /**
-     * @return the suite of tests being tested
-     */
-    public static Test suite() {
-        return new TestSuite( LabFiveAndSixTest.class );
-    }
-
-    /**
-     * Rigourous Test :-)
-     */
-
-
+    @Test
     public void testFindAllAssaultWeaponsOfType() {
         var weaponsList = manager.findAllAssaultWeaponsOfType(AssaultWeaponType.Combat);
         assertTrue(weaponsList.contains(gun));
     }
 
+    @Test
     public void testFindAllDefenceWeapons() {
         assertTrue(manager.findAllDefenceWeapons().contains(vest));
     }
 
+    @Test
     public void testSoliderEnteringAndLeavingDivision() {
         division.addSolider(solider1);
         division.addSolider(solider2);
@@ -89,6 +70,7 @@ public class LabFiveAndSixTest
         assertNull(solider2.division);
     }
 
+    @Test
     public void testSoliderAcquiringAndGivingBackWeapon() {
 
         solider2.addNewWeapon(vest);
@@ -109,6 +91,7 @@ public class LabFiveAndSixTest
         assertFalse(solider2.weapons.contains(gun));
     }
 
+    @Test
     public void testWeaponManagerAcquiringAndGivingOutWeapons() {
         assertTrue(manager.getWeaponList().contains(gun));
         assertTrue(manager.getWeaponList().contains(vest));
@@ -127,6 +110,7 @@ public class LabFiveAndSixTest
         assertFalse(manager.getWeaponList().contains(vest));
     }
 
+    @Test
     public void testAllSortAndFindMethodsInWeaponManager() {
         manager.sortById(true);
         var listToCheck =  manager.getWeaponList();
